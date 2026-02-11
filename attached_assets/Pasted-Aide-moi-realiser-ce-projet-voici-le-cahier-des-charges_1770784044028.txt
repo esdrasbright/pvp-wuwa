@@ -1,0 +1,57 @@
+Aide moi à realiser ce projet, voici le cahier des charges (le document pdf)
+
+• met l'interface de remplissage de box avant l'interface de configuration du PVP
+• je veux que la page de draft soit similaire à celle sur l'image que je t'ai envoyée
+• les bans d'equilibrage doivent se faire pendant la premiere phase de ban
+• ajoute une option sur la page de configuration qui permet de regler manuellement le temps alloué aux bans (5mins 00sec par defaut pour toute la session de draft)
+• Met la section de remplissage des box du joueur 1 et 2 cotes a cotes plutot que l'un apres l'autre
+• Remplace les initiales à coté des noms des persos par leurs images, fait ensorte que toutes les images des persos soient lus depuis un fichier qui contiendra le nom de chaque perso et le lien vers l'image associée) dont j'aurais juste à preciser le lien dans le code, et au cas ou l'image ne peut pas etre lu l'affichage par defaut sera utilisé (precise moi quel type de fichier je dois utiliser, l'endroit dans le code ou je dois inserer le lien vers ce fichier, le type d'image a utiliser ainsi que la taille a utiliser) 
+• sur la page de draft ajoute des etiquettes (de couleurs rouge ou bleu) aux coins de images du persos avec pour preciser quel jouer a le perso ou pas et si oui quel est le niveau de sequences (si les 2 joueurs ont un meme perso il y'aura bien evidement 2 etiquettes de 2 couleurs differentes chacune avec le niveau de constellation possédé par le joueur associé à la couleur de l'ériquette)
+• sur derniere page change le "Résultat du PvP" en "Préparation du PvP" avec un timer de 7mins par defaut en dessous (la valeur de ce timer doit pouvoir etre modifiable depuis la page de configuration de pvp)
+• sur la derniere page le joueur doit pouvoir echanger les persos entre sa team 1 et sa team 2 en cliquant sur l'image du perso avec sa souri (click and drag)
+• le rendu, le design et l'apercu des pages doit etre tres professionnel et aegreable a utiliser pour l'utilisateur (propose des filtres pour faciliter la navigation entre les persos par exemple)
+
+Une fois que le projet est déjà fonctionnel côté frontend et la logique de draft est en place.
+
+Tâche : ajouter l’authentification Discord, le multijoueur temps réel, et la gestion persistante des box par joueur.
+
+Exigences obligatoires :
+
+Utiliser Discord OAuth2 (scope: identify)
+Utiliser Node.js + Socket.IO
+Associer chaque socket à un utilisateur Discord (discordId)
+Chaque joueur possède sa propre box, indépendante de celle de l’autre joueur
+Chaque joueur peut modifier et sauvegarder sa box lui-même
+La box est chargée automatiquement à chaque reconnexion
+
+Draft :
+
+Centraliser l’état de la draft côté serveur
+Interdire toute action hors tour côté serveur
+Synchroniser en temps réel les bans/picks/phases vers les deux clients
+
+Stockage :
+
+Utiliser le discordId comme identifiant unique
+Stockage simple (JSON ou mémoire persistée)
+Aucune base de données
+
+Contraintes :
+
+Ne pas refactoriser la logique existante
+Réutiliser les structures actuelles (draftState, objets joueurs, etc.)
+Ne pas modifier l’UI sauf ajout d’un bouton “Se connecter avec Discord”
+
+Attendus précis :
+
+server.js complet et fonctionnel
+Routes OAuth Discord
+Events Socket.IO pour :
+connexion utilisateur
+chargement de box
+modification et sauvegarde de box
+bans / picks / synchronisation draft
+
+Modifications exactes à faire dans le JS client
+
+Instructions pour lancer le projet en local
